@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>个人图书馆</title>
+    <script  src="/static/js/update.js"></script>
+    <script  src="/static/js/search.js"></script>
+<!--    <script  src="/static/js/windows.js"></script>-->
+<!--    <link rel="stylesheet" href="/static/css/windows.css">-->
+    <link rel="stylesheet" href="/static/css/update.css">
+</head>
+<body onload="selectIndex();">
+    <h3>查询Mongodb表:</h3>
+     <form action="/updatesearch" method="get">
+         <label >Table:</label>
+         <select name="table" id="typeId" onchange="saveSelectIndex();" style="width: 120px; height: 20px;" >
+             <option value="job">job</option>
+             <option value="borrow" selected>borrow</option>
+             <option value="account">account</option>
+             <option value="companyInfo">companyInfo</option>
+             <option value="dailyInfo">dailyInfo</option>
+             <option value="dairy">dairy</option>
+             <option value="rule">rule</option>
+         </select><br><br>
+         <input type="submit" value="搜索" id = "submit_button" />
+         <a href="{{url_for('Help')}}">
+                 <button type="button" >返回</button>
+         </a>
+     </form>
+    {% if flag %}
+    <h3>查询结果:{{result.table}}</h3>
+     <table id="mytable">
+      <tr>
+    <!--列名-->
+      	<td cope="col"> 序号</td>
+      	<td cope="col">标题</td>
+        <td cope="col">内容</td>
+        <td cope="col">备注</td>
+        <td cope="col">导入时间</td>
+        <td cope="col">操作</td>
+      </tr>
+       <!--每列中的元素-->
+         {% for data in result.data %}
+         <tr>
+        <!--换行显示使用<pre></pre>-->
+           <td class="row" >{{loop.index}}</td>
+           <td class="row" >{{data.title}}</td>
+           <td class="row" >{{data.content}}</td>
+           <td class="row" >{{data.remark}}</td>
+           <td class="row" >{{data.date}}</td>
+           <!-- 此操作可以设置为删除或修改按钮-->
+           <td class="row" >
+            <form action="/update" method="post" >
+                <input type="hidden" value={{result.table}} name="updatetable"/>
+                 <input type="hidden" value={{data._id}} name="data_id"/>
+                <!--第二个参数是默认值，注意换行会报错-->
+                 <input type="submit" onclick="update_title('{{loop.index0}}','{{data.title}}')"  value="修改标题" name="titleback"   />
+           </form>
+            <form action="/update" method="post" >
+                <input type="hidden" value={{result.table}} name="updatetable"/>
+                 <input type="hidden" value={{data._id}} name="data_id"/>
+                <!--由于无法解决数据中存在换行问题，所以暂时不输入默认值-->
+                <input type="submit" onclick="update_content('{{loop.index0}}')"  value="修改内容" name="contentback"  />
+           </form >
+            <form action="/update" method="post"  >
+                <input type="hidden" value={{result.table}} name="updatetable"/>
+                <input type="hidden" value={{data._id}} name="data_id"/>
+                <!--由于无法解决数据中存在换行问题，所以暂时不输入默认值-->
+                <input type="submit" onclick="update_remark('{{loop.index0}}')"  value="修改备注" name="remarkback"  />
+           </form >
+            <form action="/deletedata" method="get" >
+                <input type="hidden" value={{result.table}} name="updatetable"/>
+                <input type="hidden" value={{data._id}} name="data_id"/>
+                <input type="submit"  value="删除数据" />
+           </form>
+           </td>
+         </tr>
+         {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,7 @@
+2020-08Ff-02 10:56:35 werkzeug WARNING  * Debugger is active!
+2020-08Ff-02 10:56:35 werkzeug INFO  * Debugger PIN: 659-119-732
+2020-08Ff-02 10:56:39 werkzeug INFO 127.0.0.1 - - [02/Aug/2020 10:56:39] "POST /update HTTP/1.1" 200 -
+2020-08Ff-02 10:56:41 werkzeug INFO 127.0.0.1 - - [02/Aug/2020 10:56:41] "GET /updatesearch?table=borrow HTTP/1.1" 200 -
+2020-08Ff-02 10:56:43 werkzeug INFO 127.0.0.1 - - [02/Aug/2020 10:56:43] "POST /update HTTP/1.1" 200 -
+2020-08Ff-02 10:57:26 werkzeug INFO 127.0.0.1 - - [02/Aug/2020 10:57:26] "GET /updatesearch?table=borrow HTTP/1.1" 200 -
+2020-08Ff-02 10:57:36 werkzeug INFO 127.0.0.1 - - [02/Aug/2020 10:57:36] "POST /update HTTP/1.1" 200 -
