@@ -31,6 +31,8 @@
                 -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
                 -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
                 transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+                word-wrap:break-word;
+
          }
 
  input:focus{
@@ -46,9 +48,8 @@
                   text-align: right;
                   width: 150px;
                   vertical-align: top;
-                  table-layout:fixed;
                   word-wrap:break-word;
-              word-break:break-all;
+
              }
 
  #mytable {
@@ -59,7 +60,6 @@
               font-weight:bold;
 	          border-radius:3px;
 	          word-wrap:break-word;
-              word-break:break-all;
               }
 
 th {
@@ -74,9 +74,7 @@ text-align: left;
 padding: 6px 6px 6px 12px;
 background: #CAE8EA  no-repeat;
 word-wrap:break-word;
-word-break:break-all;
-overflow:auto;
-table-layout:fixed;
+
 }
 /*power by www.winshell.cn*/
 th.nobg {
@@ -84,6 +82,8 @@ border-top: 0;
 border-left: 0;
 border-right: 1px solid #C1DAD7;
 background: none;
+word-wrap:break-word;
+
 }
 
 td {
@@ -94,11 +94,14 @@ font-size:15px;
 padding: 6px 6px 6px 12px;
 color: #4f6b72;
 word-wrap:break-word;
-word-break:break-all;
+
 }
 td.alt {
-background: #F5FAFA;
+backgro
+und: #F5FAFA;
 color: #797268;
+
+
 }
 
 th.spec {
@@ -114,9 +117,4 @@ border-top: 0;
 background: #f5fafa no-repeat;
 font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
 color: #797268;
-}
-
-.row {
-word-wrap:break-word;
-max-width: 100px;
 }
